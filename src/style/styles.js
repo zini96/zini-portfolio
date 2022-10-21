@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "./media_query";
 
 export const FlexContainer = styled.div`
   display: flex;
@@ -7,17 +6,20 @@ export const FlexContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  padding: 0px 28px;
+  padding: 0px 14px;
   transition: all 0.2s linear;
   width: calc(100%-2rem);
-  height: 90vh;
+  height: calc(100vh - 70px);
 
   & h2 {
-    font-size: 34px;
+    font-size: 28px;
     line-height: 1.2;
     font-weight: 500;
-    padding-bottom: 40px;
+    padding-bottom: 25px;
     color: ${({ theme }) => theme.textColor};
-    text-align: center;
+    // text-align: center;
+    & span {
+      color: ${({ theme }) => theme.textColor};
+    }
   }
 `;

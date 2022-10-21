@@ -1,13 +1,11 @@
 /* FONT */
-@import url(
-  'https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap'
-);
-@import url(
-  "https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css"
-);
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css");
 
 /* CSS RESET */
-*, ::after, ::before {
+*,
+::after,
+::before {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -17,11 +15,102 @@
   user-select: none;
 }
 
-article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
   display: block;
 }
 
-a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
   padding: 0;
   border: 0;
   margin: 0;
@@ -46,7 +135,7 @@ img {
   border: 0;
 }
 
-button{
+button {
   background-color: transparent;
   text-decoration: none;
   border: none;
@@ -55,7 +144,7 @@ button{
   font: inherit;
 }
 
-input{
+input {
   text-decoration: none;
   background-color: none;
   outline: none;
@@ -64,14 +153,14 @@ input{
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  box-shadow: 0 0 0px 1000px transparent inset;
   -webkit-transition: background-color 9999s ease-out;
   transition: background-color 5000s ease-in-out 0s;
 }
@@ -93,7 +182,7 @@ select {
 
 /* PLACEHOLDER */
 
-input::placeholder{
+input::placeholder {
   color: #757575;
   font-size: 14px;
 }
@@ -110,11 +199,14 @@ textarea::placeholder {
   clear: both;
 }
 
-::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar {
+  display: none;
+}
 
-html, #root {
+html,
+#root {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-} 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

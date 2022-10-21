@@ -7,20 +7,16 @@ import githubW from "../../assets/github_w.png";
 import Blogheader from "./Blogheader";
 import BlogContainer from "./BlogContainer";
 import BlogRight from "./BlogRight";
+import datafile from "../../data/db.json";
 
 const Projects = () => {
   const ThemeMode = useTheme();
   const [filterdata, setFilterdata] = useState();
-  const [projects, setProjects] = useState(null);
+  const [projects, setProjects] = useState();
 
   useEffect(() => {
-    fetch("http://localhost:8000/projects")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setProjects(data);
-      });
+    console.log(datafile.projects);
+    setProjects(datafile.projects);
   }, []);
 
   const filter = (e) => {
@@ -44,8 +40,12 @@ const Projects = () => {
           <button onClick={filter} className="blog-menu" data-filter="JS">
             JS
           </button>
-          <button onClick={filter} className="blog-menu" data-filter="UIUX">
-            UI/UX
+          <button
+            onClick={filter}
+            className="blog-menu"
+            data-filter="Web Publishing"
+          >
+            Web Publishing
           </button>
           <a href="https://github.com/zini96" className="blog-menu mention">
             {ThemeMode[0] == "light" ? (

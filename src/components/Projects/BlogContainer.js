@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function BlogContainer({ filterdata, projects }) {
   const projectAll = projects.map((project) => (
@@ -8,17 +9,18 @@ function BlogContainer({ filterdata, projects }) {
         <div className="blog-menu small-title date">{project.summary}</div>
       </div>
       <div className="blog-article">
-        <img src={project.mainimg} alt="" />
-        <h2>
+        <Link to={`/project/${project.id}`}>
+          <img src={`images/${project.mainimg}.png`} alt="" />
+        </Link>
+        <h2 className="blog-article-name">
           {project.projectFn}
-          <span>{project.keyFn}</span>
+          <span>(개발인원 : {project.participants}인)</span>
         </h2>
         <div className="blog-detail">
           <span>skill</span> {project.skills}
         </div>
-        {/* 프로젝트를 통해 배운점 */}
         <p>{project.desc}</p>
-        <a href={project.giturl}>
+        <a className="git_link" href={project.giturl}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -47,7 +49,9 @@ function BlogContainer({ filterdata, projects }) {
           <div className="blog-menu small-title date">{project.summary}</div>
         </div>
         <div className="blog-article">
-          <img src={project.mainimg} alt="" />
+          <Link to={`/project/${project.id}`}>
+            <img src={`images/${project.mainimg}.png`} alt="" />
+          </Link>
           <h2>
             {project.projectFn}
             <span>{project.keyFn}</span>
@@ -57,7 +61,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a href={project.giturl}>
+          <a className="git_link" href={project.giturl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -86,7 +90,9 @@ function BlogContainer({ filterdata, projects }) {
           <div className="blog-menu small-title date">{project.summary}</div>
         </div>
         <div className="blog-article">
-          <img src={project.mainimg} alt="" />
+          <Link to={`/project/${project.id}`}>
+            <img src={`images/${project.mainimg}.png`} alt="" />
+          </Link>
           <h2>
             {project.projectFn}
             <span>{project.keyFn}</span>
@@ -96,7 +102,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a href={project.giturl}>
+          <a className="git_link" href={project.giturl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -116,8 +122,8 @@ function BlogContainer({ filterdata, projects }) {
       </div>
     ));
 
-  const projectUIUX = projects
-    .filter((project) => project.category === "UIUX")
+  const projectWP = projects
+    .filter((project) => project.category === "Publishing")
     .map((project) => (
       <div className="blog-header" key={project.id}>
         <div className="blog-article header-article">
@@ -125,7 +131,9 @@ function BlogContainer({ filterdata, projects }) {
           <div className="blog-menu small-title date">{project.summary}</div>
         </div>
         <div className="blog-article">
-          <img src={project.mainimg} alt="" />
+          <Link to={`/project/${project.id}`}>
+            <img src={`images/${project.mainimg}.png`} alt="" />
+          </Link>
           <h2>
             {project.projectFn}
             <span>{project.keyFn}</span>
@@ -135,7 +143,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a href={project.giturl}>
+          <a className="git_link" href={project.giturl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -165,8 +173,8 @@ function BlogContainer({ filterdata, projects }) {
     return <div className="blog-header-container">{projectReact}</div>;
   } else if (filterdata === "JS") {
     return <div className="blog-header-container">{projectJS}</div>;
-  } else if (filterdata === "UIUX") {
-    return <div className="blog-header-container">{projectUIUX}</div>;
+  } else if (filterdata === "Web Publishing") {
+    return <div className="blog-header-container">{projectWP}</div>;
   }
 }
 

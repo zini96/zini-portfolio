@@ -4,6 +4,7 @@ import { useTheme } from "../context/themeProvider";
 import { FlexContainer } from "../style/styles";
 import ThemeToggle from "../theme/ThemeToggle";
 import Header from "./Header";
+import TopBtn from "./TopBtn";
 
 const AppLayout = ({ children }) => {
   const [ThemeMode, toggleTheme] = useTheme();
@@ -11,6 +12,7 @@ const AppLayout = ({ children }) => {
     <WrapContainer>
       <Header />
       <FlexContainer>{children}</FlexContainer>
+      <TopBtn></TopBtn>
     </WrapContainer>
   );
 };
