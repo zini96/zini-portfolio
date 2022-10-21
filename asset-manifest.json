@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/zini-portfolio/static/css/main.27a634ca.css",
+    "main.js": "/zini-portfolio/static/js/main.25dced28.js",
+    "static/media/self_img.jpg": "/zini-portfolio/static/media/self_img.4cfa29dfb4792c012f16.jpg",
+    "static/media/bg_orange.jpg": "/zini-portfolio/static/media/bg_orange.685ea659bc1459b37375.jpg",
+    "static/media/pngegg.png": "/zini-portfolio/static/media/pngegg.9e0a1ad5b7392718f7bd.png",
+    "static/media/github_w.png": "/zini-portfolio/static/media/github_w.9c2a3844150608340a26.png",
+    "index.html": "/zini-portfolio/index.html",
+    "main.27a634ca.css.map": "/zini-portfolio/static/css/main.27a634ca.css.map",
+    "main.25dced28.js.map": "/zini-portfolio/static/js/main.25dced28.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.27a634ca.css",
+    "static/js/main.25dced28.js"
+  ]
+}
