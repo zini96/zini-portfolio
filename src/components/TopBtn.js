@@ -22,7 +22,7 @@ function TopBtn() {
       }
     };
 
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
 
     window.addEventListener("scroll", handleShowButton);
     return () => {

@@ -15,7 +15,7 @@ const Projects = () => {
   const [projects, setProjects] = useState();
 
   useEffect(() => {
-    console.log(datafile.projects);
+    // console.log(datafile.projects);
     setProjects(datafile.projects);
   }, []);
 

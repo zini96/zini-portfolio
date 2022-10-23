@@ -1,13 +1,13 @@
 import React from "react";
 import AppLayout from "../AppLayout";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { useTheme } from "../../context/themeProvider";
 import datafile from "../../data/db.json";
 
 function ProjectDetail(props) {
   const ThemeMode = useTheme();
 
-  console.log(props.match.params.id);
+  // console.log(props.match.params.id);
   const idNum = props.match.params.id;
 
   const dataList = datafile.projects;
@@ -26,7 +26,7 @@ function ProjectDetail(props) {
             <div>
               <video muted autoPlay loop>
                 <source
-                  src={`/videos/${projectData.mainimg}/${video.video}.mp4`}
+                  src={`../videos/${projectData.mainimg}/${video.video}.mp4`}
                   type="video/mp4"
                 />
               </video>
@@ -41,28 +41,6 @@ function ProjectDetail(props) {
       return <div>동영상 없음</div>;
     }
   };
-
-  // const VideoBox = Videos.map((video, index) => {
-  //   if (Videos.length > 0) {
-  //     return (
-  //       <VideoDiv className="videobox" key={index} theme={ThemeMode[0]}>
-  //         <div>
-  //           <video muted autoPlay loop>
-  //             <source
-  //               src={`/videos/${projectData.mainimg}/${video.video}.mp4`}
-  //               type="video/mp4"
-  //             />
-  //           </video>
-  //           <h3>{video.videoName}</h3>
-  //         </div>
-
-  //         <p>{video.videoDesc}</p>
-  //       </VideoDiv>
-  //     );
-  //   } else {
-  //     console.log("비디오 없음");
-  //   }
-  // });
 
   const Btn = () => {
     if (projectData.deployurl) {
@@ -82,7 +60,7 @@ function ProjectDetail(props) {
           <h1>{projectData.projectName}</h1>
           <img
             className={projectData.mainimg}
-            src={`/images/${projectData.mainimg}_logo.png`}
+            src={`../images/${projectData.mainimg}_logo.png`}
             alt=""
           />
         </div>

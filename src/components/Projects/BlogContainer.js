@@ -52,7 +52,7 @@ function BlogContainer({ filterdata, projects }) {
           <Link to={`/project/${project.id}`}>
             <img src={`images/${project.mainimg}.png`} alt="" />
           </Link>
-          <h2>
+          <h2 className="blog-article-name">
             {project.projectFn}
             <span>{project.keyFn}</span>
           </h2>
@@ -93,7 +93,7 @@ function BlogContainer({ filterdata, projects }) {
           <Link to={`/project/${project.id}`}>
             <img src={`images/${project.mainimg}.png`} alt="" />
           </Link>
-          <h2>
+          <h2 className="blog-article-name">
             {project.projectFn}
             <span>{project.keyFn}</span>
           </h2>
@@ -134,7 +134,7 @@ function BlogContainer({ filterdata, projects }) {
           <Link to={`/project/${project.id}`}>
             <img src={`images/${project.mainimg}.png`} alt="" />
           </Link>
-          <h2>
+          <h2 className="blog-article-name">
             {project.projectFn}
             <span>{project.keyFn}</span>
           </h2>
@@ -163,7 +163,7 @@ function BlogContainer({ filterdata, projects }) {
       </div>
     ));
 
-  console.log(filterdata);
+  // console.log(filterdata);
 
   if (!filterdata) {
     return <div className="blog-header-container">{projectAll}</div>;
