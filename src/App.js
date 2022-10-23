@@ -10,7 +10,7 @@ import { GlobalStyle } from "./theme/GlobalStyles";
 
 function App() {
   return (
-    <BrowserRouter basename="https://zini96.github.io/zini-portfolio/">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ThemeProvider>
         <GlobalStyle />
         <Suspense fallback={<div>...loading</div>}>
