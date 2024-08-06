@@ -3,15 +3,85 @@
     {
       "id": 1,
       "category": "react",
+      "projectName": "My note",
+      "summary": "React project",
+      "mainImg": "mynote",
+      "desc": "리액트 활용에 익숙해지기 위해 만든 개인 프로젝트입니다. geolocation과 openweatherAPI를 사용해서 사용자의 위치에 대한 날씨 정보를 불러올 수 있게 만들었고 달력 컴포넌트와 차트 컴포넌트를 이용해서 할 일에 대한 진행도를 확인할 수 있도록 했습니다. 모든 정보는 로컬스토리지에 저장되도록 만들었습니다. 반응형으로 디자인해서 뷰포트에 따라 제공되는 기능이 추가되거나 제거될 수 있습니다. 테마 기능을 추가해서 사용자의 취향에 맞게 다른 컨셉의 my note를 이용할 수 있습니다.",
+      "skills": "html, css, react",
+      "gitUrl": "https://github.com/zini96/mynote",
+      "projectFn": "todolist & challenge",
+      "participants": "1",
+      "deployUrl": "https://zini96.github.io/mynote/",
+      "videos": [
+        {
+          "video": "UI",
+          "videoName": "반응형 CSS",
+          "videoDesc": "반응형 CSS입니다. 뷰포트에 따라 제공되는 기능에 차이가 있도록 만들었습니다."
+        },
+        {
+          "video": "theme",
+          "videoName": "테마 변경",
+          "videoDesc": "좌측의 컬러인덱스를 이용해서 전체 테마를 변경할 수 있습니다."
+        },
+        {
+          "video": "task",
+          "videoName": "task 기능 및 캘린더 기능",
+          "videoDesc": "캘린더의 날짜를 클릭하면 해당 날짜에 추가된 할 일의 진행도를 볼 수 있습니다. 뷰포트에 따라 progress bar의 형태나 도넛차트의 모양으로 확인 할 수 있습니다. task add 섹션에서 할 일을 추가 할 수 있고 하단의 리스트에서 완료처리, 메모 확인, 수정, 삭제를 할 수 있습니다. 중요도 토글 버튼을 누르면 해당 할 일이 리스트 상단으로 배치됩니다."
+        },
+        {
+          "video": "challenge",
+          "videoName": "challenge 기능",
+          "videoDesc": "습관형성을 위한 일주일 챌린지 기능입니다. 7일동안 하루에 하나씩 뱃지를 클릭할 수 있고 마지막날 뱃지의 개수에 따라 다른 문구를 토스트 팝업으로 보여줍니다. 하루에 하나 이상의 뱃지를 클릭하면 주의 문구를 토스트 팝업으로 보여줍니다."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "react",
+      "projectName": "ZINI portfolio",
+      "summary": "React project",
+      "mainImg": "portfolio",
+      "desc": "지금까지 공부하고 만들어본 프로젝트 소개와 앞으로 어떤 개발자로 성장해나가고 싶은지를 담은 개인 포트폴리오 사이트입니다.",
+      "skills": "html, css, react",
+      "gitUrl": "https://github.com/zini96/zini-portfolio",
+      "projectFn": "개인 포트폴리오 사이트",
+      "participants": "1",
+      "deployUrl": "https://zini96.github.io/zini-portfolio",
+      "videos": [
+        {
+          "video": "main",
+          "videoName": "메인페이지 및 테마",
+          "videoDesc": "포트폴리오 메인페이지입니다. 다크 모드 / 라이트 모드 선택이 가능합니다."
+        },
+        {
+          "video": "project",
+          "videoName": "프로젝트 페이지",
+          "videoDesc": "프로젝트 필터링이 가능하고 상세페이지로 연결됩니다."
+        },
+        {
+          "video": "contact",
+          "videoName": "메일 발송",
+          "videoDesc": "이름과 이메일, 일정 길이 이상의 텍스트를 입력하면 이메일 발송 버튼이 활성화됩니다. "
+        },
+        {
+          "video": "responsive",
+          "videoName": "반응형 CSS",
+          "videoDesc": "반응형 CSS입니다."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "react",
       "projectName": "YouTube",
       "summary": "React project",
-      "mainimg": "youtube",
+      "mainImg": "youtube",
       "desc": "리액트, 노드, 몽고DB, 리덕스를 활용해서 유튜브 사이트를 클론코딩 했습니다. 보일러 플레이트를 이용해 회원가입 기능을 구현하고 유튜브 사이트의 동영상 업로드 기능과 구독, 좋아요, 댓글 기능을 재현하는것을 중점으로 만든 프로젝트입니다.",
       "skills": "html, css, react, node, redux",
-      "giturl": "https://github.com/zini96/youtube-clone",
+      "gitUrl": "https://github.com/zini96/youtube-clone",
       "projectFn": "유튜브 클론코딩",
       "participants": "1",
-      "deployurl": "",
+      "deployUrl": "",
       "videos": [
         {
           "video": "login",
@@ -36,17 +106,17 @@
       ]
     },
     {
-      "id": 2,
+      "id": 4,
       "category": "react",
       "projectName": "Movie Time",
       "summary": "React project",
-      "mainimg": "movie",
+      "mainImg": "movie",
       "desc": "리액트, 노드, 몽고DB, Express JS를 활용해서 영화 사이트를 구현했습니다. The Movie DB에서 제공하는 API를 사용했고 영화 상세페이지와 Favorite 기능을 구현했습니다. 외부 API를 사용하는 방법을 배우는데 중점을 둔 프로젝트입니다. ",
       "skills": "html, css, react, Express JS, node",
-      "giturl": "https://github.com/zini96/movie-app",
+      "gitUrl": "https://github.com/zini96/movie-app",
       "projectFn": "영화 사이트",
       "participants": "1",
-      "deployurl": "",
+      "deployUrl": "",
       "videos": [
         {
           "video": "login",
@@ -61,17 +131,17 @@
       ]
     },
     {
-      "id": 3,
+      "id": 5,
       "category": "react",
       "projectName": "We Go",
       "summary": "React project",
-      "mainimg": "wego",
+      "mainImg": "wego",
       "desc": "리액트, 노드, 몽고DB, 리덕스, Express JS를 활용해서 쇼핑몰 웹사이트입니다. 상품 업로드, 상품 검색기능, 상세페이지, 카트 페이지를 구현했고 페이팔을 활용한 결제시스템을 중점으로 연습한 프로젝트입니다.",
       "skills": "html, css, react, redux, node, Express JS",
-      "giturl": "https://github.com/zini96/we-go-travel",
+      "gitUrl": "https://github.com/zini96/we-go-travel",
       "projectFn": "여행사 사이트",
       "participants": "1",
-      "deployurl": "",
+      "deployUrl": "",
       "videos": [
         {
           "video": "login",
@@ -100,53 +170,39 @@
         }
       ]
     },
+
     {
-      "id": 4,
-      "category": "react",
-      "projectName": "ZINI portfolio",
-      "summary": "React project",
-      "mainimg": "portfolio",
-      "desc": "지금까지 공부하고 만들어본 프로젝트 소개와 앞으로 어떤 개발자로 성장해나가고 싶은지를 담은 개인 포트폴리오 사이트입니다.",
-      "skills": "html, css, react",
-      "giturl": "https://github.com/zini96/zini-portfolio",
-      "projectFn": "개인 포트폴리오 사이트",
+      "id": 6,
+      "category": "javascript",
+      "projectName": "To Do",
+      "summary": "JS project",
+      "mainImg": "todos",
+      "desc": "HTML 구조설계와 CSS 활용, JS의 활용을 익히기 위해 만든 todolist입니다.",
+      "skills": "html, css, javascript",
+      "gitUrl": "https://github.com/zini96/todos",
+      "projectFn": "todo 리스트",
       "participants": "1",
-      "deployurl": "",
+      "deployUrl": "https://zini-todos.netlify.app",
       "videos": [
         {
           "video": "main",
-          "videoName": "메인페이지 및 테마",
-          "videoDesc": "포트폴리오 메인페이지입니다. 다크 모드 / 라이트 모드 선택이 가능합니다."
-        },
-        {
-          "video": "project",
-          "videoName": "프로젝트 페이지",
-          "videoDesc": "프로젝트 필터링이 가능하고 상세페이지로 연결됩니다."
-        },
-        {
-          "video": "contact",
-          "videoName": "메일 발송",
-          "videoDesc": "이름과 이메일, 일정 길이 이상의 텍스트를 입력하면 이메일 발송 버튼이 활성화됩니다. "
-        },
-        {
-          "video": "responsive",
-          "videoName": "반응형 CSS",
-          "videoDesc": "반응형 CSS입니다."
+          "videoName": "투두리스트 작동",
+          "videoDesc": "할 일을 추가, 수정, 삭제 가능합니다. 남은 할 일의 개수를 파악할 수 있고 진행중인 할 일과 완료된 일을 구분해서 완료된 일에 대한 일괄 삭제가 가능합니다."
         }
       ]
     },
     {
-      "id": 5,
+      "id": 7,
       "category": "Publishing",
       "projectName": "Sulwhasoo",
       "summary": "Web Publishing",
-      "mainimg": "sulwhasoo",
+      "mainImg": "sulwhasoo",
       "desc": "HTML 구조설계와 CSS 활용, JS와 jQuery의 기본기를 익히기 위해 만든 반응형 웹사이트입니다. 설화수 홈페이지를 참고하여 만들었습니다.",
       "skills": "html, css, javascript, jQuery",
-      "giturl": "https://github.com/zini96/sulhwasu-clone",
+      "gitUrl": "https://github.com/zini96/sulhwasu-clone",
       "projectFn": "설화수 반응형 웹사이트",
       "participants": "1",
-      "deployurl": "https://sulhwasoo-clone.netlify.app",
+      "deployUrl": "https://sulhwasoo-clone.netlify.app",
       "videos": [
         {
           "video": "main",
@@ -161,17 +217,17 @@
       ]
     },
     {
-      "id": 6,
+      "id": 8,
       "category": "Publishing",
       "projectName": "Starbucks",
       "summary": "Web Publishing",
-      "mainimg": "starbucks",
+      "mainImg": "starbucks",
       "desc": "HTML 구조설계와 CSS 활용, JS의 기본기를 익히기 위해 만든 반응형 웹사이트입니다. 스타벅스 홈페이지를 참고하여 만들었습니다.",
       "skills": "html, css, javascript",
-      "giturl": "https://github.com/zini96/zinibucks",
+      "gitUrl": "https://github.com/zini96/zinibucks",
       "projectFn": "스타벅스 반응형 웹사이트",
       "participants": "1",
-      "deployurl": "https://zinibucks.netlify.app",
+      "deployUrl": "https://zinibucks.netlify.app",
       "videos": [
         {
           "video": "main",
@@ -187,26 +243,6 @@
           "video": "responsive",
           "videoName": "반응형 CSS",
           "videoDesc": "반응형 CSS입니다. 모바일 UI를 참고했습니다."
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "category": "javascript",
-      "projectName": "To Do",
-      "summary": "JS project",
-      "mainimg": "todos",
-      "desc": "HTML 구조설계와 CSS 활용, JS의 활용을 익히기 위해 만든 todolist입니다.",
-      "skills": "html, css, javascript",
-      "giturl": "https://github.com/zini96/todos",
-      "projectFn": "todo 리스트",
-      "participants": "1",
-      "deployurl": "https://zini-todos.netlify.app",
-      "videos": [
-        {
-          "video": "main",
-          "videoName": "투두리스트 작동",
-          "videoDesc": "할 일을 추가, 수정, 삭제 가능합니다. 남은 할 일의 개수를 파악할 수 있고 진행중인 할 일과 완료된 일을 구분해서 완료된 일에 대한 일괄 삭제가 가능합니다."
         }
       ]
     }

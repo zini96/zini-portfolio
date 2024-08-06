@@ -1,12 +1,9 @@
-import React, { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useEffect, useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import styled from "styled-components";
 import AppLayout from "./AppLayout";
 import { useTheme } from "../context/themeProvider";
-import {
-  MdOutlinePersonOutline,
-  MdOutlineEmail,
-  MdClose,
-} from "react-icons/md";
+import { MdOutlinePersonOutline, MdOutlineEmail } from "react-icons/md";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import {
   FaArrowRight,
@@ -16,40 +13,76 @@ import {
 } from "react-icons/fa";
 
 const Sub = () => {
+  const form = useRef();
   const ThemeMode = useTheme();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [bgpage, setBgpage] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
-  const [formInput, setFormInput] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const isValidSend = (form) => {
-    return !(
-      formInput.name &&
-      formInput.email.includes("@") &&
-      formInput.message.length > 5
+  const [isValid, setIsValid] = useState(false);
+  const [toast, setToast] = useState(false);
+
+  const [nameValue, setNameInput] = useState("");
+  const [emailValue, setEmailInput] = useState("");
+  const [messageValue, setMessageInput] = useState("");
+
+  function ToastPopup({ setToast, text }) {
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setToast(false);
+      }, 1500);
+      return () => {
+        clearTimeout(timer);
+      };
+    }, [setToast]);
+
+    return (
+      <BgPage>
+        <ToastDiv>
+          <p>{text}</p>
+        </ToastDiv>
+      </BgPage>
     );
+  }
+
+  const mailSendValid = () => {
+    return nameValue.length >= 1 &&
+      emailValue.includes("@") &&
+      messageValue.length >= 5
+      ? setIsValid(true)
+      : setIsValid(false);
   };
 
-  const handleContactInput = (e) => {
-    const { value, name } = e.target;
-    setFormInput({ ...formInput, [name]: value });
-    const validForm = isValidSend(formInput);
-    setIsDisabled(!validForm);
+  const handleNameInput = (e) => {
+    setNameInput(e.target.value);
   };
 
-  console.log(formInput, isDisabled);
-
-  const showModal = () => {
-    setModalOpen(true);
-    setBgpage(true);
+  const handleMailInput = (e) => {
+    setEmailInput(e.target.value);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-    setBgpage(false);
+  const handleMessageInput = (e) => {
+    setMessageInput(e.target.value);
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_iaqftc6",
+        "template_zfq7qfe",
+        form.current,
+        "N05p1cVyO-i2hNQYE"
+      )
+      .then(
+        (result) => {
+          setToast(true);
+          console.log(result.text);
+          form.current.reset();
+          setIsValid(false);
+        },
+        (error) => {
+          alert("전송을 실패했습니다.");
+          console.log(error.text);
+        }
+      );
   };
 
   return (
@@ -89,108 +122,62 @@ const Sub = () => {
           <Button />
         </Card>
         <ContentBox>
-          <form
-            method="POST"
-            action="https://script.google.com/macros/s/AKfycbyo0F95BVna2eQlKhHtH0IZS0jdI-dnE48GvHXOO036d8bjZ2Qvlc1CErh3WC3GN2M/exec"
-            target="iframe1"
-          >
-            <div>
-              <Fieldset>
-                <Label htmlFor="name">
-                  <span>
-                    <MdOutlinePersonOutline />
-                  </span>
-                  Name
-                </Label>
-                <br />
-                <Input
-                  id="name"
-                  name="name"
-                  placeholder="e.g. John doe"
-                  onChange={handleContactInput}
-                  value={formInput.name || ""}
-                />
-              </Fieldset>
-
-              <Fieldset>
-                <Label htmlFor="email">
-                  <span>
-                    <MdOutlineEmail />
-                  </span>
-                  Email
-                </Label>
-                <br />
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  valueDefault=""
-                  required
-                  placeholder="your.name@email.com"
-                  onChange={handleContactInput}
-                  value={formInput.email || ""}
-                />
-              </Fieldset>
-
-              <Fieldset>
-                <Label htmlFor="message">
-                  <span>
-                    <HiOutlinePencilAlt />
-                  </span>
-                  Message
-                </Label>
-                <br />
-                <TextArea
-                  id="message"
-                  name="message"
-                  rows="10"
-                  placeholder="type here"
-                  onChange={handleContactInput}
-                  value={formInput.message || ""}
-                />
-              </Fieldset>
-            </div>
-
+          <form ref={form} onSubmit={sendEmail}>
+            <Label htmlFor="name">
+              <span>
+                <MdOutlinePersonOutline />
+              </span>
+              Name
+            </Label>
+            <Input
+              id="from_name"
+              type="text"
+              placeholder="성함을 입력해주세요."
+              name="from_name"
+              onChange={handleNameInput}
+              onKeyUp={mailSendValid}
+            />
+            <Label htmlFor="email">
+              <span>
+                <MdOutlineEmail />
+              </span>
+              Email
+            </Label>
+            <Input
+              type="email"
+              name="email"
+              placeholder="회신받을 이메일 주소를 입력해주세요."
+              onKeyUp={mailSendValid}
+              onChange={handleMailInput}
+            />
+            <Label htmlFor="text">
+              <span>
+                <HiOutlinePencilAlt />
+              </span>
+              Message
+            </Label>
+            <TextArea
+              name="message"
+              placeholder="이메일 내용을 5글자 이상 작성해주세요."
+              rows={8}
+              onChange={handleMessageInput}
+              onKeyUp={mailSendValid}
+            />
             <SendBtn
-              disabled={!isDisabled}
-              className={isDisabled ? "activeBtn" : "unactiveBtn"}
-              onClick={showModal}
-            >
-              Send Message
-            </SendBtn>
+              type="submit"
+              name="submit"
+              value="Send"
+              className={isValid ? "activeBtn" : "unactiveBtn"}
+              disabled={!isValid}
+            />
           </form>
-          <iframe
-            id="iframe1"
-            name="iframe1"
-            style={{ display: "none" }}
-          ></iframe>
         </ContentBox>
       </Wrap>
-      {bgpage && <BgPage />}
-      {modalOpen && (
-        <Modal>
-          <div className="container">
-            <div className="animation">
-              <div className="mail">
-                <div className="mail-anim" />
-              </div>
-              <div className="line" />
-              <div className="success">
-                <div className="success-anim" />
-              </div>
-            </div>
-            <div className="message">
-              Your message has been sent successfully
-            </div>
-          </div>
-          <div className="thxmsg">
-            Thanks for your interest :-)
-            <br /> I will get back to you within 24 hours.
-          </div>
-          <button onClick={closeModal}>
-            <MdClose />
-          </button>
-        </Modal>
+      {toast && (
+        <ToastPopup
+          setToast={setToast}
+          text="메일이 전송되었습니다."
+        ></ToastPopup>
       )}
     </AppLayout>
   );
@@ -217,199 +204,31 @@ const Wrap = styled.div`
   }
 `;
 
+const ToastDiv = styled.div`
+  background-color: rgba(230, 183, 74, 0.9);
+  border: 1px solid rgba(255, 127, 80, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  height: 40px;
+  width: 250px;
+  padding: 5px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  bottom: calc(50vh - 20px);
+  left: calc(50vw - 125px);
+`;
+
 const BgPage = styled.div`
   position: absolute;
   top: 60px;
   left: 0;
   width: 100%;
   height: calc(100vh - 60px);
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 110;
-`;
-
-const transformS = keyframes`
-  50% {transform: scale(.5, .5); opacity: .5;}
-`;
-
-const moveL = keyframes`
-  100% { transform: translateX(220px) rotateY(90deg);}
-`;
-
-const moveR = keyframes`
-  0% { transform: translateX(-220px) rotateY(90deg);}
-  50% { transform: translateX(0) rotateY(0);}
-`;
-
-const transformB = keyframes`
-  50% {transform: scale(1.5, 1.5); background: $color-1;}
-  100%{background: $color-1;}
-`;
-
-const transformBA = keyframes`
-  100% {border-bottom: 2px solid $color-2;
-  border-left: 2px solid $color-2;}
-`;
-
-const rotateCenter = keyframes`
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
-const Modal = styled.div`
-  position: absolute;
-  background-color: #fff;
-  width: 640px;
-  height: 300px;
-  z-index: 120;
-  border-radius: 8px;
-  & button {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    bottom: 40px;
-    left: calc(50% - 15px);
-    display : inline-flex;
-    align-items: center
-    justify-content: center;
-    font-size: 40px;
-    &:hover {
-      animation: ${rotateCenter} 1s ease-in-out both;
-    }
-  }
-  & .thxmsg {
-    width: 100%;
-    position: absolute;
-    top: 140px;
-    text-align: center;
-    font-size: 20px;
-  }
-  & .container {
-    position: absolute;
-    top: 50px;
-    left: calc(50% - 270px);
-    width: 540px;
-    & .message {
-      text-align: center;
-      margin-top: 10px;
-    }
-    & .animation {
-      width: 540px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      & .success {
-        width: 40px;
-        height: 30px;
-        border-radius: 5% 5%;
-        border: 2px solid #e0b341;
-        position: relative;
-        animation: ${transformB} 0.3s 1.4s linear forwards;
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: 12px;
-          left: 11px;
-          width: 15px;
-          height: 8px;
-          border-bottom: 2px solid #e0b341;
-          border-left: 2px solid #e0b341;
-          transform: rotate(-45deg);
-          animation: ${transformBA} 0.3s 1.4s linear forwards;
-        }
-        & .success-anim {
-          width: 40px;
-          height: 30px;
-          border-radius: 5% 5%;
-          border: 2px solid #e0b341;
-          position: relative;
-          margin: -2px 0 0 -2px;
-          animation: ${moveR} 0.8s 1s linear;
-          &:after {
-            content: "";
-            position: absolute;
-            bottom: 12px;
-            left: 11px;
-            width: 15px;
-            height: 8px;
-            border-bottom: 2px solid #e0b341;
-            border-left: 2px solid #e0b341;
-            transform: rotate(-45deg);
-          }
-        }
-      }
-      & .line {
-        padding: 1px 210px;
-        background-image: linear-gradient(
-          to right,
-          #000 30%,
-          rgba(255, 255, 255, 0) 0%
-        );
-        background-position: top;
-        background-size: 15px 2px;
-        background-repeat: repeat-x;
-      }
-      & .mail {
-        width: 40px;
-        height: 30px;
-        border-radius: 5% 5%;
-        border: 2px solid black;
-        position: relative;
-        animation: ${transformS} 0.3s linear;
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: 5px;
-          left: 5px;
-          width: 15px;
-          height: 4px;
-          border-bottom: 2px solid black;
-          border-top: 2px solid black;
-        }
-        &:before {
-          content: "";
-          position: absolute;
-          top: 5px;
-          right: 5px;
-          width: 7px;
-          height: 6px;
-          background: black;
-        }
-        & .mail-anim {
-          width: 40px;
-          height: 30px;
-          border-radius: 5% 5%;
-          border: 2px solid black;
-          position: relative;
-          margin: -2px 0 0 -2px;
-          animation: ${moveL} 0.8s linear;
-          &:after {
-            content: "";
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            width: 15px;
-            height: 4px;
-            border-bottom: 2px solid black;
-            border-top: 2px solid black;
-          }
-          &:before {
-            content: "";
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            width: 7px;
-            height: 6px;
-            background: black;
-          }
-        }
-      }
-    }
-  }
 `;
 
 const Pic = styled.div`
@@ -557,11 +376,9 @@ const ContentBox = styled.div`
   }
 `;
 
-const Fieldset = styled.fieldset`
-  padding-top: 15px;
-`;
-
 const Label = styled.label`
+  display: block;
+  padding-top: 15px;
   color: #31302e;
   & span {
     vertical-align: text-top;
@@ -595,7 +412,7 @@ const TextArea = styled.textarea`
   }
 `;
 
-const SendBtn = styled.button`
+const SendBtn = styled.input`
   border: none;
   width: 100%;
   min-width: 240px;

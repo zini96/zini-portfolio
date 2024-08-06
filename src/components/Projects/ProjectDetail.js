@@ -26,7 +26,7 @@ function ProjectDetail(props) {
             <div>
               <video muted autoPlay loop>
                 <source
-                  src={`../videos/${projectData.mainimg}/${video.video}.mp4`}
+                  src={`../videos/${projectData.mainImg}/${video.video}.mp4`}
                   type="video/mp4"
                 />
               </video>
@@ -43,9 +43,9 @@ function ProjectDetail(props) {
   };
 
   const Btn = () => {
-    if (projectData.deployurl) {
+    if (projectData.deployUrl) {
       return (
-        <a href={projectData.deployurl}>
+        <a href={projectData.deployUrl}>
           <button className="deployurl">See Live</button>
         </a>
       );
@@ -59,8 +59,8 @@ function ProjectDetail(props) {
         <div className="title">
           <h1>{projectData.projectName}</h1>
           <img
-            className={projectData.mainimg}
-            src={`../images/${projectData.mainimg}_logo.png`}
+            className={projectData.mainImg}
+            src={`../images/${projectData.mainImg}_logo.png`}
             alt=""
           />
         </div>
@@ -80,7 +80,7 @@ function ProjectDetail(props) {
 
         <div className="btnDiv">
           {Btn()}
-          <a href={projectData.giturl}>
+          <a href={projectData.gitUrl}>
             <button className="giturl">Source Code</button>
           </a>
         </div>

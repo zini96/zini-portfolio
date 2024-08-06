@@ -213,7 +213,15 @@ marquee span:before {
   overflow: auto;
   height: calc(100% + 60px);
 }
+
+.dart {
+  font-size: 28px;
+  margin-top: 5px;
+  margin-bottom: -3px;
+}
+
 .blog-right-page-footer {
+  min-height: 60px;
   border-top: 1px solid #94918f;
   margin-top: 25px;
   font-style: italic;
@@ -223,6 +231,7 @@ marquee span:before {
 }
 
 .blog-right-title {
+  height: 42px;
   font-size: 25px;
   font-family: "Playfair Display", serif;
 }

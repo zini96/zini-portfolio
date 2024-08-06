@@ -57,7 +57,7 @@ const Projects = () => {
           </a>
         </div>
         <Blogheader filter={filterdata} />
-        {/* <BlogContainer filterdata={filterdata} /> */}
+
         <div className="blog-header-container">
           {projects && (
             <BlogContainer projects={projects} filterdata={filterdata} />

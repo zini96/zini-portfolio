@@ -10,7 +10,7 @@ function BlogContainer({ filterdata, projects }) {
       </div>
       <div className="blog-article">
         <Link to={`/project/${project.id}`}>
-          <img src={`images/${project.mainimg}.png`} alt="" />
+          <img src={`images/${project.mainImg}.png`} alt="" />
         </Link>
         <h2 className="blog-article-name">
           {project.projectFn}
@@ -20,7 +20,7 @@ function BlogContainer({ filterdata, projects }) {
           <span>skill</span> {project.skills}
         </div>
         <p>{project.desc}</p>
-        <a className="git_link" href={project.giturl}>
+        <a className="git_link" href={project.gitUrl}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -34,7 +34,7 @@ function BlogContainer({ filterdata, projects }) {
             <path d="M15 10l5 5-5 5" />
             <path d="M4 4v7a4 4 0 004 4h12" />
           </svg>
-          README
+          Source Code
         </a>
       </div>
     </div>
@@ -50,7 +50,7 @@ function BlogContainer({ filterdata, projects }) {
         </div>
         <div className="blog-article">
           <Link to={`/project/${project.id}`}>
-            <img src={`images/${project.mainimg}.png`} alt="" />
+            <img src={`images/${project.mainImg}.png`} alt="" />
           </Link>
           <h2 className="blog-article-name">
             {project.projectFn}
@@ -61,7 +61,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a className="git_link" href={project.giturl}>
+          <a className="git_link" href={project.gitUrl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -75,7 +75,7 @@ function BlogContainer({ filterdata, projects }) {
               <path d="M15 10l5 5-5 5" />
               <path d="M4 4v7a4 4 0 004 4h12" />
             </svg>
-            README
+            Source Code
           </a>
         </div>
       </div>
@@ -91,7 +91,7 @@ function BlogContainer({ filterdata, projects }) {
         </div>
         <div className="blog-article">
           <Link to={`/project/${project.id}`}>
-            <img src={`images/${project.mainimg}.png`} alt="" />
+            <img src={`images/${project.mainImg}.png`} alt="" />
           </Link>
           <h2 className="blog-article-name">
             {project.projectFn}
@@ -102,7 +102,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a className="git_link" href={project.giturl}>
+          <a className="git_link" href={project.gitUrl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -116,7 +116,7 @@ function BlogContainer({ filterdata, projects }) {
               <path d="M15 10l5 5-5 5" />
               <path d="M4 4v7a4 4 0 004 4h12" />
             </svg>
-            README
+            Source Code
           </a>
         </div>
       </div>
@@ -132,7 +132,7 @@ function BlogContainer({ filterdata, projects }) {
         </div>
         <div className="blog-article">
           <Link to={`/project/${project.id}`}>
-            <img src={`images/${project.mainimg}.png`} alt="" />
+            <img src={`images/${project.mainImg}.png`} alt="" />
           </Link>
           <h2 className="blog-article-name">
             {project.projectFn}
@@ -143,7 +143,7 @@ function BlogContainer({ filterdata, projects }) {
           </div>
           {/* 프로젝트를 통해 배운점 */}
           <p>{project.desc}</p>
-          <a className="git_link" href={project.giturl}>
+          <a className="git_link" href={project.gitUrl}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -157,7 +157,7 @@ function BlogContainer({ filterdata, projects }) {
               <path d="M15 10l5 5-5 5" />
               <path d="M4 4v7a4 4 0 004 4h12" />
             </svg>
-            README
+            Source Code
           </a>
         </div>
       </div>
