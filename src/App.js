@@ -10,7 +10,7 @@ import { GlobalStyle } from "./theme/GlobalStyles";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <ThemeProvider>
         <GlobalStyle />
         <Suspense fallback={<div>...loading</div>}>
